@@ -1,16 +1,15 @@
 import asyncio
 from src.model.settings.db_connection_handler import db_connection_handler
-from src.model.repositories.pessoa_repository import PessoasRepository
+from src.controllers.pessoas_finder import PessoasFinder
 
 
 async def run_people():
     await db_connection_handler.connect_to_db()
 
-    repo = PessoasRepository()
-    pessoa = await repo.get_all_people()
+    controller = PessoasFinder()
+    response = await controller.find_people()
 
-    for pessoa in pessoa:
-        print(pessoa.name)
+    print(response)
 
 
     await db_connection_handler.disconnect_to_db()
