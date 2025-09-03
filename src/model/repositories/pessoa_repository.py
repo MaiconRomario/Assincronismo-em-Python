@@ -1,7 +1,7 @@
 from src.model.settings.db_connection_handler import db_connection_handler
 from src.model.entities.pessoa import Pessoas
 
-class GestoresRepository:
+class PessoasRepository:
     def __init__(self):
         self.__conn = db_connection_handler.get_db_conn()
 
